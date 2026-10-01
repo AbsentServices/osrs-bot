@@ -7,7 +7,7 @@ A feature-rich, modular Old School RuneScape (OSRS) Discord bot built with **dis
 ## ✨ Key Features
 
 - **📊 Hiscores Lookup (`/hiscores`)**
-  - Fetches player skill levels, total level, overall XP, overall rank, and top 5 boss kill counts (KC) directly from official OSRS Hiscores[cite: 18].
+  - Fetches player skill levels, total level, overall XP, overall rank, and top 5 boss kill counts (KC) directly from official OSRS Hiscores.
 
 - **⚔️ Combat Level Calculator (`/combat`)**
   - Calculates precise OSRS combat levels based on Attack, Strength, Defence, Hitpoints, Prayer, Ranged, and Magic levels.
