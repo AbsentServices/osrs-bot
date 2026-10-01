@@ -2,12 +2,10 @@ import discord
 from discord.ext import commands
 from utils import db
 
-GP_PER_INVITE = 100
 
 class InviteTracker(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        # Mapping: {guild_id: [discord.Invite]}
         self.invites = {}
 
     @commands.Cog.listener()
@@ -29,7 +27,7 @@ class InviteTracker(commands.Cog):
     async def on_member_join(self, member: discord.Member):
         guild = member.guild
         old_invites = self.invites.get(guild.id, [])
-        
+
         try:
             new_invites = await guild.invites()
             self.invites[guild.id] = new_invites
@@ -41,9 +39,14 @@ class InviteTracker(commands.Cog):
             if new_inv and new_inv.uses > invite.uses:
                 inviter = invite.inviter
                 if inviter and not inviter.bot:
-                    db.add_gp(guild.id, inviter.id, GP_PER_INVITE)
-                    print(f"[{guild.name}] Awarded {GP_PER_INVITE} GP to {inviter.name} for inviting {member.name}")
+                    # Dynamically read server config rate
+                    config = db.get_guild_config(guild.id)
+                    gp_reward = config.get("gp_per_invite", 100)
+
+                    db.add_gp(guild.id, inviter.id, gp_reward)
+                    print(f"[{guild.name}] Awarded {gp_reward} GP to {inviter.name} for inviting {member.name}")
                 break
+
 
 async def setup(bot):
     await bot.add_cog(InviteTracker(bot))
