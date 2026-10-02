@@ -16,10 +16,10 @@ A feature-rich, modular Old School RuneScape (OSRS) Discord bot built with **dis
   - Simulates loot drops for supported bosses (e.g., Zulrah, Vorkath) up to 1,000 kills at a time.
 
 - **📈 Grand Exchange Price Checker (`/ge`)**
-  - Pulls live real-time high/low market prices and item icons directly from the official OSRS Wiki API[cite: 11].
+  - Pulls live real-time high/low market prices and item icons directly from the official OSRS Wiki API.
 
 - **🔍 RSN Status & Ban Checker (`/check_rsn`)**
-  - Verifies if a RuneScape Name is active, unranked, restricted/blocked, or banned using Hiscores and RuneMetrics endpoints[cite: 14].
+  - Verifies if a RuneScape Name is active, unranked, restricted/blocked, or banned using Hiscores and RuneMetrics endpoints.
 
 - **🎟 Server Raffle System (`/create_raffle`, `/draw_raffle`)**
   - Admin-created raffles with modal-based ticket purchases powered by server GP.
@@ -28,7 +28,7 @@ A feature-rich, modular Old School RuneScape (OSRS) Discord bot built with **dis
   - Interactive dropdown menu for purchasing custom server rewards with accumulated GP.
 
 - **🤝 Invite Tracker**
-  - Automatically awards configurable server GP rewards to members when new users join via their invite links[cite: 19].
+  - Automatically awards configurable server GP rewards to members when new users join via their invite links.
 
 - **⚙️ Server Configuration (`/config`)**
   - Admin tools to manage GP per invite rates, shop items, and view server settings.
