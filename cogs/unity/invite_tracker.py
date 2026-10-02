@@ -39,7 +39,6 @@ class InviteTracker(commands.Cog):
             if new_inv and new_inv.uses > invite.uses:
                 inviter = invite.inviter
                 if inviter and not inviter.bot:
-                    # Dynamically read server config rate
                     config = db.get_guild_config(guild.id)
                     gp_reward = config.get("gp_per_invite", 100)
 

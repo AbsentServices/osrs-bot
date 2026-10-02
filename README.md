@@ -1,57 +1,66 @@
 # ⚔️ OSRS Discord Bot
 
-A feature-rich, modular Old School RuneScape (OSRS) Discord bot built with **discord.py v2.0+**. It includes live Grand Exchange price lookup, Hiscore stats and boss KC querying, combat level and drop simulation calculators, RSN availability/status checking, server GP economy management, interactive raffles, and invite tracking rewards.
+A feature-rich, modular Old School RuneScape (OSRS) Discord bot built with **discord.py v2.0+**. It includes live Grand Exchange price lookup, Hiscore stats and boss KC querying, combat level and drop simulation calculators, RSN status checking, server GP economy management, interactive raffles, clan events, bingo, and invite tracking rewards.
 
 ---
 
 ## ✨ Key Features
 
-- **📊 Hiscores Lookup (`/hiscores`)**
-  - Fetches player skill levels, total level, overall XP, overall rank, and top 5 boss kill counts (KC) directly from official OSRS Hiscores.
+- **📊 Hiscores & Price Checks (`/hiscores`, `/ge`)**
+  - Fetches player skill levels, total level, overall XP, overall rank, top boss kill counts (KC), and live Grand Exchange prices.
 
-- **⚔️ Combat Level Calculator (`/combat`)**
-  - Calculates precise OSRS combat levels based on Attack, Strength, Defence, Hitpoints, Prayer, Ranged, and Magic levels.
+- **⚔️ Game Tools & Calculators (`/slayer_task`, `/dryness`, `/xp_calc`, `/quest_reqs`)**
+  - Slayer task info, drop dryness binomial calculators, target XP action calculators, and quest requirements checking.
 
-- **🎲 Boss Drop Simulator (`/simulate_kills`)**
-  - Simulates loot drops for supported bosses (e.g., Zulrah, Vorkath) up to 1,000 kills at a time.
+- **🏆 Clan Events & Competitions (`/event_create`, `/event_list`, `/sotw`, `/botw`, `/bingo`)**
+  - Interactive RSVP event posts, Skill/Boss of the Week leaderboards, and clan bingo submission tracking.
 
-- **📈 Grand Exchange Price Checker (`/ge`)**
-  - Pulls live real-time high/low market prices and item icons directly from the official OSRS Wiki API.
+- **💰 Economy & Server Shop (`/shop`, `/balance`, `/pay`, `/daily`)**
+  - Server GP economy with peer-to-peer transfers, daily rewards, raffles, and item reward shop.
 
-- **🔍 RSN Status & Ban Checker (`/check_rsn`)**
-  - Verifies if a RuneScape Name is active, unranked, restricted/blocked, or banned using Hiscores and RuneMetrics endpoints.
-
-- **🎟 Server Raffle System (`/create_raffle`, `/draw_raffle`)**
-  - Admin-created raffles with modal-based ticket purchases powered by server GP.
-
-- **🛒 GP Reward Shop (`/shop`) & Economy**
-  - Interactive dropdown menu for purchasing custom server rewards with accumulated GP.
-
-- **🤝 Invite Tracker**
-  - Automatically awards configurable server GP rewards to members when new users join via their invite links.
-
-- **⚙️ Server Configuration (`/config`)**
-  - Admin tools to manage GP per invite rates, shop items, and view server settings.
+- **🛡️ Admin & Economy Management (`/config ...`)**
+  - Admin controls to manage GP balances, reset economy, set invite rewards, and manage shop listings.
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-├── bot.py                  # Main entry point, cog loader & command tree syncer
-├── requirements.txt        # Python package dependencies
+├── bot.py                     # Main entry point, cog loader & command tree syncer
+├── requirements.txt           # Python package dependencies
 ├── cogs/
-│   ├── combat_calc.py      # OSRS combat level calculator
-│   ├── config.py           # Admin command group for server settings & shop management
-│   ├── drop_sim.py         # Boss kill drop simulator
-│   ├── hiscores.py         # Player skill levels and boss kill counts lookup
-│   ├── invite_tracker.py   # Automatic GP rewards on server invites
-│   ├── price_check.py      # Grand Exchange live prices via Wiki API
-│   ├── raffle.py           # Raffle creation and drawing system
-│   ├── reward_shop.py      # Server GP reward shop interface
-│   └── rsn_check.py        # RSN format validation and status checking
+│   ├── admin/
+│   │   └── eco/
+│   │       ├── add_gp.py       # Manually award GP to a member
+│   │       ├── remove_gp.py    # Deduct GP from a member
+│   │       └── reset_economy.py# Reset server GP balances
+│   ├── clan_events/
+│   │   ├── bingo.py           # Clan bingo board & submission tracker
+│   │   ├── botw.py            # Boss of the Week leaderboard
+│   │   ├── event_create.py    # Schedule clan event with RSVP buttons
+│   │   ├── event_list.py      # List active clan events
+│   │   └── sotw.py            # Skill of the Week leaderboard
+│   ├── game_tools/
+│   │   ├── dryness.py         # Statistical dryness calculator
+│   │   ├── quest_reqs.py      # Quest stat requirement checker
+│   │   ├── slayer_task.py     # Slayer task lookup & recommendations
+│   │   └── xp_calc.py         # XP & action calculator
+│   ├── unity/
+│   │   ├── add_shop_item.py   # Add item to reward shop
+│   │   ├── invite_tracker.py  # Automatic GP rewards on server invites
+│   │   ├── remove_shop_item.py# Remove item from reward shop
+│   │   ├── set_invite_reward.py# Configure GP per invite rate
+│   │   └── view_settings.py   # View server settings & shop
+│   ├── combat_calc.py         # OSRS combat level calculator
+│   ├── drop_sim.py            # Boss kill drop simulator
+│   ├── hiscores.py            # Player stats lookup
+│   ├── price_check.py         # Grand Exchange live prices
+│   ├── raffle.py              # Raffle creation and drawing system
+│   ├── reward_shop.py         # Server GP reward shop interface
+│   └── rsn_check.py           # RSN format validation and status check
 └── utils/
-    └── db.py               # JSON/Database helper module for GP and config tracking
+    └── db.py                  # Database/JSON helper module
+
 ```
 
 ---
@@ -91,42 +100,73 @@ python bot.py
 
 ```
 
-## 🛠️ Command Reference
+---
+
+## 🛠️️ Command Reference
 
 ### ⚔️ General & Player Utilities
 
 | Command | Arguments | Description |
 | --- | --- | --- |
-| `/hiscores` | `<rsn>` | Look up player stats, total level, and top boss kill counts.|
-| `/combat` | `<attack> <strength> <defence> <hitpoints> <prayer> [ranged] [magic]` | Calculate OSRS combat level.|
-| `/simulate_kills` | `<boss> <kills>` | Simulate boss drops (Max: 1,000 kills).|
-| `/ge` | `<item_name>` | View live Grand Exchange high (buy) and low (sell) prices.|
-| `/check_rsn` | `<rsn>` | Check if an RSN is active, unranked, banned, or available.|
+| `/hiscores` | `<rsn>` | Look up player stats, total level, and top boss kill counts. |
+| `/combat` | `<attack> <strength> <defence> <hitpoints> <prayer> [ranged] [magic]` | Calculate OSRS combat level. |
+| `/simulate_kills` | `<boss> <kills>` | Simulate boss drops (Max: 1,000 kills). |
+| `/ge` | `<item_name>` | View live Grand Exchange high/low prices. |
+| `/check_rsn` | `<rsn>` | Check if an RSN is active, unranked, banned, or available. |
 
+---
 
-### 💰 Economy & Server Shop
-
-| Command | Description |
-| --- | --- |
-| `/shop` | Open the server reward shop menu to check balance and purchase items.
-
-
-
-### ⚙️ Admin & Management Commands
+### 🎮 Game Tools & Calculators (`cogs/game_tools/`)
 
 | Command | Arguments | Description |
 | --- | --- | --- |
-| `/create_raffle` | `<prize> <ticket_price>` | Start a new server raffle with ticket purchasing.|
-| `/draw_raffle` | `<raffle_id>` | Pick a winner at random from purchased tickets.|
-| `/config set_invite_reward` | `<amount>` | Set GP rewarded per successful server invite.|
-| `/config add_shop_item` | `<item_name> <price>` | Add or update an item in the server shop.|
-| `/config remove_shop_item` | `<item_name>` | Remove an item from the reward shop.|
-| `/config view_settings` | *None* | View server invite rewards and available shop items.|
+| `/slayer_task` | `<task_name>` | Slayer task weakness, locations, and gear recommendations. |
+| `/dryness` | `<kc> <drop_rate>` | Binomial probability dryness/luck calculator. |
+| `/xp_calc` | `<current_xp> <target_level> <xp_per_action>` | Calculate actions required to reach target level. |
+| `/quest_reqs` | `<quest_name>` | Check player stat requirements for major quests. |
+
+---
+
+### 🏆 Clan & Activity Features (`cogs/clan_events/`)
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `/event_create` | `<title> <description> <time>` | Schedule a clan event with RSVP buttons (DPS, Tank, Healer, Learner). |
+| `/event_list` | *None* | View active scheduled clan events. |
+| `/sotw` | `<skill>` | Skill of the Week leaderboard tracking XP gains. |
+| `/botw` | `<boss>` | Boss of the Week leaderboard tracking kill counts. |
+| `/bingo` | `[tile] [proof]` | Clan bingo board status and tile screenshot submission. |
+
+---
+
+### 💰 Economy & Gambling Features (Server GP)
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `/shop` | *None* | Interactive server shop menu to purchase custom rewards. |
+| `/balance` | `[user]` | View user's current GP balance. |
+| `/pay` | `<user> <amount>` | Transfer server GP to another member. |
+| `/daily` | *None* | Claim daily server GP reward. |
+| `/flip` | `<amount> <choice>` | Wager GP on coin flip. |
+
+---
+
+### 🛡️️ Admin & Server Configuration (`cogs/admin/eco/` & `cogs/unity/`)
+
+| Command | Arguments | Description |
+| --- | --- | --- |
+| `/config add_gp` | `<user> <amount>` | Manually award server GP to a user. |
+| `/config remove_gp` | `<user> <amount>` | Deduct server GP from a user. |
+| `/config reset_economy` | *None* | Reset all server GP balances. |
+| `/config set_invite_reward` | `<amount>` | Set GP awarded per successful member invite. |
+| `/config add_shop_item` | `<item_name> <price>` | Add or update an item in the server reward shop. |
+| `/config remove_shop_item` | `<item_name>` | Remove an item from the reward shop. |
+| `/config view_settings` | *None* | View server invite rewards and shop listings. |
+| `/create_raffle` | `<prize> <ticket_price>` | Start a server raffle with ticket purchasing. |
+| `/draw_raffle` | `<raffle_id>` | Randomly select a raffle winner. |
 
 ---
 
 ## 📝 License
 
-Distributed under the MIT License.
-
-
+Distributed under the GNU General Public License v3.0. See `LICENSE` for details.
