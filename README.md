@@ -73,7 +73,13 @@ An Old School RuneScape (OSRS) themed Discord bot built with `discord.py`. Featu
 
 ---
 
+## 🗡️ Highscores & Character Stats (`cogs/stats/hiscores.py`)
 
+* `/hiscores <username>` — Query the official OSRS Highscores API to view level, XP, and global rank for all skills.
+* `/bosses <username>` — Display boss kill counts (KC) and raid completions (ToA, CoX, ToB) for a player.
+* `/gainz <username> [timeframe]` — Track skill XP gains over a daily, weekly, or monthly timeframe.
+
+---
 
 
 ### 🛠️ Developer Commands (`cogs/dev/`)
