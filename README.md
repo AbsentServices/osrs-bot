@@ -65,14 +65,25 @@ An Old School RuneScape (OSRS) themed Discord bot built with `discord.py`. Featu
 
 ---
 
+## 🛡️ Clue Scrolls & Minigames (`cogs/games/clues.py`)
+
+* `/clue <tier>` — Solve a simulated Easy, Medium, Hard, Master, or Elite clue scroll step. Correct answers reward randomized casket loot (e.g., Third Age gear, Ranger Boots).
+* `/barrows` — Open a Barrows chest simulator with accurate drop tables for Barrows armor pieces and runes.
+* `/pet` — Roll on pet drop chances from iconic bosses (e.g., Zulrah, Vorkath, Jad) to collect rare server profile badges.
+
+---
+
+
+
+
 ### 🛠️ Developer Commands (`cogs/dev/`)
 
 *(Requires Bot Owner permissions)*
 
-* `!sync` — Manually force-sync application slash commands with Discord.
-* `!load <extension>` — Dynamically load an extension (e.g., `!load cogs.games.flip`).
-* `!unload <extension>` — Dynamically unload an extension (e.g., `!unload cogs.games.flip`).
-* `!reload <extension>` — Dynamically reload an extension without restarting the bot (e.g., `!reload cogs.dev.sync`).
+* `/sync` — Manually force-sync application slash commands with Discord.
+* `/load <extension>` — Dynamically load an extension (e.g., `!load cogs.games.flip`).
+* `/unload <extension>` — Dynamically unload an extension (e.g., `!unload cogs.games.flip`).
+* `/reload <extension>` — Dynamically reload an extension without restarting the bot (e.g., `/reload cogs.dev.sync`).
 
 ---
 
