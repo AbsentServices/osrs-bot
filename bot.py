@@ -22,12 +22,12 @@ class OSRSBot(commands.Bot):
     async def setup_hook(self):
         cogs_dir = "./cogs"
 
-        # Recursively scan and load all cogs and subfolder cogs (e.g., cogs/game_tools/)
+        # Recursively scan and load all cogs across all directories (cogs/dev, cogs/games, cogs/economy, etc.)
         for root, _, files in os.walk(cogs_dir):
             for file in files:
                 if file.endswith(".py") and not file.startswith("__"):
                     rel_path = os.path.relpath(os.path.join(root, file), start=".")
-                    # Convert file path to module path (e.g. cogs/game_tools/slayer_task.py -> cogs.game_tools.slayer_task)
+                    # Convert path to module format (e.g. cogs/dev/developer.py -> cogs.dev.developer)
                     module_path = rel_path[:-3].replace(os.sep, ".")
                     
                     try:
