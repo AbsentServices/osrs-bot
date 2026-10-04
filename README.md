@@ -88,6 +88,13 @@ An Old School RuneScape (OSRS) themed Discord bot built with `discord.py`. Featu
 
 ---
 
+## 👥 Clan & Guild Features (`cogs/clan/management.py`)
+
+* `/event create <name> <time>` — Create and schedule clan events (Raid Nights, Skill-of-the-Week, Bingo) with RSVP reaction buttons.
+* `/split <total_loot> <team_size>` — Calculate raid loot splits, accounting for team size and server tax/coffer contributions.
+* `/leaderboard` — Display a server-wide leaderboard showing the top GP balances, duel wins, or total boss KC.
+---
+
 
 ### 🛠️ Developer Commands (`cogs/dev/`)
 
