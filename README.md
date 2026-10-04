@@ -81,6 +81,13 @@ An Old School RuneScape (OSRS) themed Discord bot built with `discord.py`. Featu
 
 ---
 
+## 📈 Grand Exchange & Item Prices (`cogs/ge.py`)
+
+* `/ge price <item_name>` — Fetch real-time OSRS item prices, daily volume, high/low buy limits, and price trend charts via the OSRS Wiki API.
+* `/ge margin <item_name>` — View flipping margins (buy/sell spread) and potential profit per item to help users flip items in-game.
+
+---
+
 
 ### 🛠️ Developer Commands (`cogs/dev/`)
 
