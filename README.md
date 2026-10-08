@@ -15,16 +15,22 @@ An Old School RuneScape (OSRS) themed Discord bot built with `discord.py`. Featu
 * `/work` — Start a time-based OSRS activity (e.g., mining runite, killing Vorkath) to earn GP.
 * `/work_claim` — Claim your GP reward once your active `/work` task is complete.
 
+Here is the updated **Skilling Commands** section formatted for your `README.md` including all 10 skilling skills and their respective subcommands:
+
 ---
 
 ### 🪓 Skilling Commands (`cogs/skilling/`)
 
 * `/chop <tree> [quantity]` — Chop trees (Oak, Willow, Maple, Yew, Magic) to gain Woodcutting XP, gather logs for GP, and roll for the Beaver pet.
-* `/mine <rock> [quantity]` — Mine ore veins (Iron, Coal, Mithril, Adamantite, Runite) to gain Mining XP, collect sellable ores, and unearth uncut gems.
+* `/cook <food> [quantity]` — Cook raw food (Shrimp, Trout, Lobster, Swordfish, Shark, Anglerfish) on a range or fire for Cooking XP and GP. Watch out for burned food!
+* `/farm plant <seed>` / `/farm harvest` — Plant agricultural seeds and return later to harvest mature crops for GP rewards and Farming XP.
 * `/fish <fish> [quantity]` — Cast your line for fish (Trout, Lobster, Swordfish, Monkfish, Shark, Anglerfish) to earn Fishing XP, GP, and roll for the Heron pet.
+* `/mine <rock> [quantity]` — Mine ore veins (Iron, Coal, Mithril, Adamantite, Runite) to gain Mining XP, collect sellable ores, and unearth uncut gems.
+* `/mix <potion> [quantity]` — Combine herbs and secondary ingredients into potions (Attack, Prayer, Super Strength, Super Restore, Saradomin Brew, Super Combat) for Herblore XP and GP.
+* `/pickpocket <target> [attempts]` — Pickpocket NPCs (Man/Woman, Master Farmer, Ardougne Knight, Vyre Noble, Prifddinas Elf) for stolen GP, Thieving XP, and Rocky pet rolls. Beware of getting stunned!
 * `/slayer task` — Get an assigned Slayer task from Masters (Turael up to Duradel) based on your level.
 * `/slayer skip` — Spend earned Slayer points to skip unwanted tasks.
-* `/farm plant <seed>` / `/farm harvest` — Plant seeds and return hours later to harvest crops for GP rewards.
+* `/smith <bar> [quantity]` — Smelt ores and smith metal bars (Bronze, Iron, Steel, Mithril, Adamantite, Rune) into gear for Smithing XP and GP.
 
 ---
 
