@@ -57,11 +57,13 @@ An Old School RuneScape (OSRS) themed Discord bot built with `discord.py`. Featu
 ---
 
 
-## 📜 Slayer & Skill Training (`cogs/skilling/slayer.py`)
+## 📜 Skill Training (`cogs/skilling/`)
 
+
+### Slayer (`cogs/skilling/slayer.py`)
 * `/slayer task` — Get an assigned Slayer task from Masters (Turael up to Duradel) based on your level.
 * `/slayer skip` — Spend earned Slayer points to skip unwanted tasks.
-* `/farm plant <seed>` / `/farm harvest` — Passive farming command where players plant seeds and return hours later to harvest crops for GP rewards.
+
 
 ---
 
