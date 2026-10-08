@@ -33,6 +33,9 @@ Coming Soon1!
 * **Risky Sacrifice**: 45% win rate (2.00x multiplier)
 * **Death's Gamble**: 15% win rate (5.00x multiplier)
 * `/flip <choice> <wager>` — Wager GP on a 50/50 coin flip (**Heads** or **Tails**).
+* `/clue <tier>` — Solve a simulated Easy, Medium, Hard, Master, or Elite clue scroll step. Correct answers reward randomized casket loot (e.g., Third Age gear, Ranger Boots).
+* `/barrows` — Open a Barrows chest simulator with accurate drop tables for Barrows armor pieces and runes.
+* `/pet` — Roll on pet drop chances from iconic bosses (e.g., Zulrah, Vorkath, Jad) to collect rare server profile badges.
 
 ---
 
@@ -47,7 +50,7 @@ Coming Soon1!
 
 ---
 
-## 🛡️ Clue Scrolls & Minigames (`cogs/games/clues.py`)
+## 🛡️ Clue Scrolls & Minigames (`cogs/games/`)
 
 * `/clue <tier>` — Solve a simulated Easy, Medium, Hard, Master, or Elite clue scroll step. Correct answers reward randomized casket loot (e.g., Third Age gear, Ranger Boots).
 * `/barrows` — Open a Barrows chest simulator with accurate drop tables for Barrows armor pieces and runes.
@@ -91,6 +94,7 @@ Coming Soon1!
 * `/kill <monster> [quantity]` — Simulate killing a boss (e.g., Vorkath, Zulrah) $N$ times and view total loot collected, profit earned, and rare drops/pets obtained.
 * `/chest <raid> [invocation_or_points]` — Simulate opening a reward chest from Chambers of Xeric (CoX), Theatre of Blood (ToB), or Tombs of Amascut (ToA).
 * `/cox_calc <party_size> <total_points>` — Calculate the exact team and individual unique drop probabilities for a CoX raid.
+
 
 ---
 
