@@ -77,6 +77,14 @@ Coming Soon1!
 * `/leaderboard` — Display a server-wide leaderboard showing the top GP balances, duel wins, or total boss KC.
 ---
 
+### 📢 Webhooks & Live Feeds (`cogs/notifications.py`)
+
+* `/feed set_channel <type> #channel` — Configure dedicated announcement channels for automated feeds:
+  * **JMod Tweets & News**: Auto-post game updates and official OSRS news blogs.
+  * **OSRS Live Updates / Maintenance**: Alert when servers undergo scheduled updates or maintenance.
+  * **Clan Drop Logs**: Hook into RuneLite webhooks to stream rare drop announcements into Discord in real-time.
+
+---
 
 ### 🛠️ Developer Commands (`cogs/dev/`)
 
