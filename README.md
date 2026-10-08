@@ -119,11 +119,3 @@ The bot includes an interactive web dashboard running on **FastAPI** (`http://lo
 * Toggle individual slash commands on/off per Discord server.
 
 ---
-
-
-
-```
-
-```
-
-```
