@@ -7,27 +7,7 @@ An Old School RuneScape (OSRS) themed Discord bot built with `discord.py`. Featu
 ## 📁 Project Structure
 
 ```text
-├── main.py
-├── utils/
-│   └── db.py
-└── cogs/
-    ├── dev/
-    │   ├── load.py
-    │   ├── reload.py
-    │   ├── sync.py
-    │   └── unload.py
-    ├── economy/
-    │   ├── balance.py
-    │   ├── daily.py
-    │   ├── pay.py
-    │   ├── work.py
-    │   └── work_claim.py
-    └── games/
-        ├── alch_game.py
-        ├── deaths_coffer.py
-        ├── flip.py
-        └── stake.py
-
+Coming Soon1!
 ```
 
 ---
