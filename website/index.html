@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚔️ OSRS Bot Control Panel</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #1e1e24; color: #fff; margin: 0; padding: 20px; }
+        h1 { color: #ffae00; text-align: center; }
+        .guild-card { background: #2b2d42; border-radius: 8px; padding: 20px; margin-bottom: 25px; border: 1px solid #3d405b; }
+        .guild-header { display: flex; align-items: center; gap: 15px; border-bottom: 1px solid #3d405b; padding-bottom: 10px; }
+        .guild-icon { width: 50px; height: 50px; border-radius: 50%; }
+        .section { margin-top: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; color: #e0e0e0; }
+        select, input { padding: 8px; background: #1e1e24; color: #fff; border: 1px solid #484b6a; border-radius: 4px; width: 100%; max-width: 300px; }
+        .cmd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-top: 10px; }
+        .cmd-item { background: #1e1e24; padding: 8px; border-radius: 4px; display: flex; align-items: center; gap: 8px; }
+        .submit-btn { background: #ffae00; color: #000; font-weight: bold; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 15px; }
+        .submit-btn:hover { background: #e69d00; }
+    </style>
+</head>
+<body>
+
+    <h1>⚔️ OSRS Bot Web Dashboard</h1>
+
+    {% for guild in guilds %}
+    <div class="guild-card">
+        <div class="guild-header">
+            {% if guild.icon %}
+                <img src="{{ guild.icon }}" class="guild-icon" alt="icon">
+            {% endif %}
+            <h2>{{ guild.name }}</h2>
+        </div>
+
+        <form action="/save/{{ guild.id }}" method="post">
+            
+            <!-- Channel Assignment Section -->
+            <div class="section">
+                <h3>📢 Notification Feeds</h3>
+                
+                <div style="margin-bottom: 10px;">
+                    <label>JMod News & Blogs Channel:</label>
+                    <select name="channel_news">
+                        <option value="">-- Disabled --</option>
+                        {% for ch in guild.channels %}
+                            <option value="{{ ch.id }}" {% if guild.config.channels.news == ch.id %}selected{% endif %}>#{{ ch.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label>OSRS Maintenance Alerts Channel:</label>
+                    <select name="channel_status">
+                        <option value="">-- Disabled --</option>
+                        {% for ch in guild.channels %}
+                            <option value="{{ ch.id }}" {% if guild.config.channels.status == ch.id %}selected{% endif %}>#{{ ch.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label>Clan Drop Logs Channel:</label>
+                    <select name="channel_drops">
+                        <option value="">-- Disabled --</option>
+                        {% for ch in guild.channels %}
+                            <option value="{{ ch.id }}" {% if guild.config.channels.drops == ch.id %}selected{% endif %}>#{{ ch.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <!-- Command Toggle Section -->
+            <div class="section">
+                <h3>⚙️ Command Toggles</h3>
+                <p style="font-size: 0.9em; color: #aaa;">Check commands you wish to **DISABLE** for this server:</p>
+                
+                <div class="cmd-grid">
+                    {% for cmd in guild.commands %}
+                    <div class="cmd-item">
+                        <input type="checkbox" name="disabled_commands" value="{{ cmd }}" 
+                               {% if cmd in guild.config.disabled_commands %}checked{% endif %}>
+                        <span>/{{ cmd }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Save Server Settings</button>
+        </form>
+    </div>
+    {% endfor %}
+
+</body>
+</html>
