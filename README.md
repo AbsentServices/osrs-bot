@@ -86,6 +86,14 @@ Coming Soon1!
 
 ---
 
+### 🗡️ Monster & Boss Drop Simulators (`cogs/games/pvm.py`)
+
+* `/kill <monster> [quantity]` — Simulate killing a boss (e.g., Vorkath, Zulrah) $N$ times and view total loot collected, profit earned, and rare drops/pets obtained.
+* `/chest <raid> [invocation_or_points]` — Simulate opening a reward chest from Chambers of Xeric (CoX), Theatre of Blood (ToB), or Tombs of Amascut (ToA).
+* `/cox_calc <party_size> <total_points>` — Calculate the exact team and individual unique drop probabilities for a CoX raid.
+
+---
+
 ### 🛠️ Developer Commands (`cogs/dev/`)
 
 *(Requires Bot Owner permissions)*
